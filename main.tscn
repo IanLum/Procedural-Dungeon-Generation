@@ -17,3 +17,30 @@ script = ExtResource("1_1qnyn")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g8iuy")
 format = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -56.0
+offset_right = -26.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "reroll"
+
+[node name="NumSplits" type="SpinBox" parent="CanvasLayer"]
+offset_left = 913.0
+offset_top = 572.0
+offset_right = 1026.0
+offset_bottom = 625.0
+value = 5.0
+prefix = "splits:"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_reroll_pressed"]

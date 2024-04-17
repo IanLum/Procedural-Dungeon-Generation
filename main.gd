@@ -1,6 +1,9 @@
 extends Node2D
 
 const TILE_SIZE := 16
+
+@onready var splits_selector = $CanvasLayer/NumSplits
+
 var root: Branch
 
 func _ready():
@@ -8,8 +11,7 @@ func _ready():
 		Vector2i(0, 0),
 		Vector2i(60, 30)
 	)
-	root.split(5)
-	queue_redraw()
+	generate_rooms()
 
 func _draw():
 	for leaf in root.get_leaves():
@@ -23,3 +25,10 @@ func _draw():
 			Color.GREEN,
 			false
 		)
+
+func generate_rooms():
+	root.split(splits_selector.value)
+	queue_redraw()
+
+func _on_reroll_pressed():
+	generate_rooms()
