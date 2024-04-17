@@ -45,3 +45,6 @@ func split(splits: int):
 	
 	left.split(splits - 1)
 	right.split(splits - 1)
+
+func center():
+	return Vector2i(position.x + size.x / 2, position.y + size.y / 2)
