@@ -20,6 +20,9 @@ func get_leaves() -> Array[Branch]:
 		return left.get_leaves() + right.get_leaves()
 
 func split(splits: int):
+	if splits == 0:
+		return
+	
 	var rng = RandomNumberGenerator.new()
 	var split_percent: float = rng.randf_range(0.3, 0.7)
 
@@ -40,6 +43,5 @@ func split(splits: int):
 			Vector2i(size.x, size.y - left_height)
 		)
 	
-	if splits > 0:
-		left.split(splits - 1)
-		right.split(splits - 1)
+	left.split(splits - 1)
+	right.split(splits - 1)
