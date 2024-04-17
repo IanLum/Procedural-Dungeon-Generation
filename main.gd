@@ -8,6 +8,7 @@ func _ready():
 		Vector2i(0, 0),
 		Vector2i(60, 30)
 	)
+	root.split(5)
 	queue_redraw()
 
 func _draw():
