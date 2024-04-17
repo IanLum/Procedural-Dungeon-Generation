@@ -1,16 +1,24 @@
 extends Node2D
 
+const TILE_SIZE := 16
+var root: Branch
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+	root = Branch.new(
+		Vector2i(0, 0),
+		Vector2i(60, 30)
+	)
+	queue_redraw()
 
 func _draw():
-	draw_line(Vector2(-1000, 0), Vector2(1000, 0), Color.AQUA, 2)
-	draw_line(Vector2(0, -1000), Vector2(0, 1000), Color.AQUA, 2)
+	for leaf in root.get_leaves():
+		draw_rect(
+			Rect2(
+				leaf.position.x * TILE_SIZE, # x
+				leaf.position.y * TILE_SIZE, # y
+				leaf.size.x * TILE_SIZE, # width
+				leaf.size.y * TILE_SIZE # height
+			),
+			Color.GREEN,
+			false
+		)

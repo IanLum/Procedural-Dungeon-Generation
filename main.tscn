@@ -17,5 +17,3 @@ script = ExtResource("1_1qnyn")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g8iuy")
 format = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
