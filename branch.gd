@@ -4,8 +4,8 @@ extends Node
 
 class_name Branch
 
-var left: Branch
-var right: Branch
+var left: Branch # left or upper room
+var right: Branch # right or lower room
 var position: Vector2i
 var size: Vector2i
 
@@ -46,5 +46,5 @@ func split(splits: int):
 	left.split(splits - 1)
 	right.split(splits - 1)
 
-func center():
+func center() -> Vector2i:
 	return Vector2i(position.x + size.x / 2, position.y + size.y / 2)
