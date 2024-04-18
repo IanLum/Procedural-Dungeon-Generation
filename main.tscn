@@ -20,7 +20,7 @@ format = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Reroll" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -33,14 +33,62 @@ offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "reroll"
+text = "Build Full Dungeon"
 
 [node name="NumSplits" type="SpinBox" parent="CanvasLayer"]
-offset_left = 913.0
-offset_top = 572.0
-offset_right = 1026.0
-offset_bottom = 625.0
+offset_left = 1031.0
+offset_top = 219.0
+offset_right = 1144.0
+offset_bottom = 272.0
 value = 5.0
 prefix = "splits:"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_reroll_pressed"]
+[node name="Partition" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -306.0
+offset_right = -26.0
+offset_bottom = -256.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Partition"
+
+[node name="PlaceRooms" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -241.0
+offset_right = -25.0
+offset_bottom = -191.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Place Rooms"
+
+[node name="PlaceHallways" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -174.0
+offset_right = -29.0
+offset_bottom = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = " Place Hallways"
+
+[connection signal="pressed" from="CanvasLayer/Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="CanvasLayer/Partition" to="." method="_on_partition_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaceRooms" to="." method="_on_place_rooms_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaceHallways" to="." method="_on_place_hallways_pressed"]

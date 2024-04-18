@@ -12,7 +12,7 @@ func _ready():
 		Vector2i(0, 0),
 		Vector2i(60, 30)
 	)
-	generate_rooms()
+	full_generate()
 
 func _draw():
 	for leaf in root.get_leaves():
@@ -27,7 +27,7 @@ func _draw():
 			false
 		)
 
-func generate_rooms():
+func full_generate():
 	root.split(splits_selector.value)
 	tile_map.clear()
 	place_room_tiles()
@@ -65,4 +65,18 @@ func place_tile(x, y):
 	tile_map.set_cell(0, Vector2i(x, y), 1, Vector2i(0, 0))
 
 func _on_reroll_pressed():
-	generate_rooms()
+	full_generate()
+
+
+func _on_partition_pressed():
+	root.split(splits_selector.value)
+	tile_map.clear()
+	queue_redraw()
+
+
+func _on_place_rooms_pressed():
+	place_room_tiles()
+
+
+func _on_place_hallways_pressed():
+	place_hallway_tiles()
