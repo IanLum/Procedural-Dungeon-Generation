@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class CSBranch : Node
@@ -12,6 +13,19 @@ public partial class CSBranch : Node
 	{
 		position = position_;
 		size = size_;
-		GD.Print(position);
+	}
+
+	public Array<CSBranch> GetLeaves()
+	{
+		if ((left is null) && (right is null))
+		{
+			var output = new Array<CSBranch>();
+			output.Add(this);
+			return output;
+		}
+		else
+		{
+			return left.GetLeaves() + right.GetLeaves();
+		}
 	}
 }
