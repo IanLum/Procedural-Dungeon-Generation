@@ -64,4 +64,12 @@ public partial class CSBranch : Node
 		left.Split(splits - 1);
 		right.Split(splits - 1);
 	}
+
+	public Vector2I Center()
+	{
+		return new Vector2I(
+			position.X + size.X / 2,
+			position.Y + size.Y / 2
+		);
+	}
 }
