@@ -1,6 +1,7 @@
 extends Node2D
 
 const TILE_SIZE := 16
+const CSBranch: CSharpScript = preload("res://CSBranch.cs")
 
 @onready var tile_map = $TileMap
 @onready var splits_selector = $CanvasLayer/NumSplits
@@ -8,6 +9,8 @@ const TILE_SIZE := 16
 var root: Branch
 
 func _ready():
+	var node = CSBranch.new(Vector2i(0,0), Vector2i(2,2))
+	print(node)
 	root = Branch.new(
 		Vector2i(0, 0),
 		Vector2i(60, 30)
