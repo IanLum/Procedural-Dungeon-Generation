@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmsffoc13gik"]
+
+[ext_resource type="Script" path="res://terrain.gd" id="1_spt0m"]
+
+[sub_resource type="TileSet" id="TileSet_yk2w7"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "DungeonWalls"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+
+[node name="terrain" type="Node2D"]
+script = ExtResource("1_spt0m")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_yk2w7")
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
