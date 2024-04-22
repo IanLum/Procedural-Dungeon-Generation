@@ -19,7 +19,7 @@ func get_leaves() -> Array[Branch]:
 	else:
 		return left.get_leaves() + right.get_leaves()
 
-func split(splits: int):
+func split(splits: int, min_size: int):
 	if splits == 0:
 		return
 	
@@ -29,6 +29,8 @@ func split(splits: int):
 	if size.x > size.y:
 		# vertical line split
 		var left_width = int(size.x * split_percent)
+		if left_width < min_size or size.x - left_width < min_size:
+			return
 		left = Branch.new(position, Vector2i(left_width, size.y))
 		right = Branch.new(
 			Vector2i(position.x + left_width, position.y),
@@ -37,14 +39,16 @@ func split(splits: int):
 	else:
 		# horizontal line split
 		var left_height = int(size.y * split_percent)
+		if left_height < min_size or size.y - left_height < min_size:
+			return
 		left = Branch.new(position, Vector2i(size.x, left_height))
 		right = Branch.new(
 			Vector2i(position.x, position.y + left_height),
 			Vector2i(size.x, size.y - left_height)
 		)
 	
-	left.split(splits - 1)
-	right.split(splits - 1)
+	left.split(splits - 1, min_size)
+	right.split(splits - 1, min_size)
 
 func center() -> Vector2i:
 	return Vector2i(position.x + size.x / 2, position.y + size.y / 2)

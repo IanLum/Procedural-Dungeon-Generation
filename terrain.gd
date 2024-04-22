@@ -28,7 +28,7 @@ func _draw():
 		)
 
 func full_generate():
-	root.split(4)
+	root.split(10, 6)
 	tile_map.clear()
 	place_room_tiles()
 	place_hallway_tiles()
