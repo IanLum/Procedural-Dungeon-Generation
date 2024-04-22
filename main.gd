@@ -40,10 +40,15 @@ func full_generate():
 	queue_redraw()
 
 func partition():
+	var start_time = Time.get_ticks_msec()
+	var num_splits = splits_selector.value
 	if use_csharp:
-		cs_root.Split(splits_selector.value)
+		cs_root.Split(num_splits)
 	else:
-		root.split(splits_selector.value)
+		root.split(num_splits)
+	var runtime = Time.get_ticks_msec() - start_time
+	var lang = "C#" if use_csharp else "GD"
+	print("%s | %d splits, %d ms" % [lang, num_splits, runtime])
 
 func place_room_tiles():
 	var leaves = cs_root.GetLeaves() if use_csharp else root.get_leaves()
