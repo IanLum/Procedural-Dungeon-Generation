@@ -167,5 +167,11 @@ script = ExtResource("1_spt0m")
 tile_set = SubResource("TileSet_yk2w7")
 format = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(523, 278)
+[node name="Generate" type="Button" parent="."]
+offset_left = 1048.0
+offset_top = 593.0
+offset_right = 1128.0
+offset_bottom = 624.0
+text = "Generate"
+
+[connection signal="pressed" from="Generate" to="." method="_on_generate_pressed"]

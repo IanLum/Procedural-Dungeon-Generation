@@ -72,3 +72,6 @@ func place_hallway_tiles():
 				for y in range(left_center.y - 1, left_center.y + 2):
 					tiles.append(Vector2i(left_center.x + x, y))
 		place_terrain(tiles)
+
+func _on_generate_pressed():
+	full_generate()
