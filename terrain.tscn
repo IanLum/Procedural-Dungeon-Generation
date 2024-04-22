@@ -168,3 +168,4 @@ tile_set = SubResource("TileSet_yk2w7")
 format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(523, 278)
