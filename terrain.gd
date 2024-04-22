@@ -41,7 +41,6 @@ func place_terrain(tiles: Array[Vector2i]):
 
 func place_room_tiles():
 	for leaf in root.get_leaves():
-		print(leaf.position, leaf.size)
 		var tiles: Array[Vector2i] = []
 		for x in range(PADDING, leaf.size.x - PADDING):
 			for y in range(PADDING, leaf.size.y - PADDING):
