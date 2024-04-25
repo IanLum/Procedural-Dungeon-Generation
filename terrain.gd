@@ -2,6 +2,9 @@ extends Node2D
 
 const TILE_SIZE := 16
 const PADDING := 1
+const MIN_PARTITION_SIZE := 6	# This translates to a min room size of 2,
+								# two tiles of padding, two tiles of walls,
+								# then the last two tiles are the room
 
 @onready var tile_map = $TileMap
 
@@ -28,7 +31,7 @@ func _draw():
 		)
 
 func full_generate():
-	root.split(10, 6)
+	root.split(10, MIN_PARTITION_SIZE)
 	tile_map.clear()
 	place_room_tiles()
 	place_hallway_tiles()
