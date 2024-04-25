@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmsffoc13gik"]
+
+[ext_resource type="Script" path="res://terrain.gd" id="1_spt0m"]
+[ext_resource type="PackedScene" uid="uid://byh654vt3y2hq" path="res://tilemaps/terrain_tilemap.tscn" id="2_lycxl"]
+
+[node name="terrain" type="Node2D"]
+script = ExtResource("1_spt0m")
+
+[node name="TileMap" parent="." instance=ExtResource("2_lycxl")]
+
+[node name="Generate" type="Button" parent="."]
+offset_left = 1048.0
+offset_top = 593.0
+offset_right = 1128.0
+offset_bottom = 624.0
+text = "Generate"
+
+[connection signal="pressed" from="Generate" to="." method="_on_generate_pressed"]

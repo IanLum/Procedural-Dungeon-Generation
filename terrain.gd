@@ -7,7 +7,6 @@ const MIN_PARTITION_SIZE := 6	# This translates to a min room size of 2,
 								# then the last two tiles are the room
 
 @onready var tile_map = $TileMap
-@onready var splits_selector = $CanvasLayer/NumSplits
 
 var root: Branch
 
@@ -32,7 +31,7 @@ func _draw():
 		)
 
 func full_generate():
-	root.split(splits_selector.value, MIN_PARTITION_SIZE)
+	root.split(10, MIN_PARTITION_SIZE)
 	tile_map.clear()
 	place_room_tiles()
 	place_hallway_tiles()
@@ -76,22 +75,5 @@ func place_hallway_tiles():
 					tiles.append(Vector2i(left_center.x + x, y))
 		place_terrain(tiles)
 
-func place_tile(x, y):
-	tile_map.set_cell(0, Vector2i(x, y), 1, Vector2i(0, 0))
-
-func _on_reroll_pressed():
+func _on_generate_pressed():
 	full_generate()
-
-
-func _on_partition_pressed():
-	root.split(splits_selector.value, MIN_PARTITION_SIZE)
-	tile_map.clear()
-	queue_redraw()
-
-
-func _on_place_rooms_pressed():
-	place_room_tiles()
-
-
-func _on_place_hallways_pressed():
-	place_hallway_tiles()
