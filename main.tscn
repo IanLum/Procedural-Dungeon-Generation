@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2xwfbcdrhkj7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1qnyn"]
-[ext_resource type="PackedScene" uid="uid://byh654vt3y2hq" path="res://terrain_tilemap.tscn" id="2_xu7i5"]
+[ext_resource type="PackedScene" uid="uid://byh654vt3y2hq" path="res://tilemaps/terrain_tilemap.tscn" id="2_xu7i5"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_1qnyn")
