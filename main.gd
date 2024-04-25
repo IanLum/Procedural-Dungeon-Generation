@@ -90,7 +90,10 @@ func _on_partition_pressed():
 
 
 func _on_split_once_pressed():
-	pass # Replace with function body.
+	for leaf in root.get_leaves():
+		leaf.split(1, MIN_PARTITION_SIZE)
+	tile_map.clear()
+	queue_redraw()
 
 
 func _on_reset_splits_pressed():
