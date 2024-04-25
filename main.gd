@@ -116,5 +116,9 @@ func _on_place_hallways_pressed():
 	place_hallway_tiles()
 
 
+func _on_clear_tiles_pressed():
+	tile_map.clear()
+
+
 func _on_reroll_pressed():
 	full_generate()
