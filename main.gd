@@ -1,6 +1,11 @@
 extends Node2D
 
 const TILE_SIZE := 16
+
+const DUNGEON_SIZE = {
+	WIDTH = 70,
+	HEIGHT = 50
+}
 const PADDING := 1
 const MIN_PARTITION_SIZE := 6	# This translates to a min room size of 2,
 								# two tiles of padding, two tiles of walls,
@@ -14,7 +19,7 @@ var root: Branch
 func _ready():
 	root = Branch.new(
 		Vector2i(0, 0),
-		Vector2i(70, 50)
+		Vector2i(DUNGEON_SIZE.WIDTH, DUNGEON_SIZE.HEIGHT)
 	)
 	full_generate()
 
@@ -89,7 +94,12 @@ func _on_split_once_pressed():
 
 
 func _on_reset_splits_pressed():
-	pass # Replace with function body.
+	root = Branch.new(
+		Vector2i(0, 0),
+		Vector2i(DUNGEON_SIZE.WIDTH, DUNGEON_SIZE.HEIGHT)
+	)
+	tile_map.clear()
+	queue_redraw()
 
 
 ## --- TILE PLACING BUTTONS ---
