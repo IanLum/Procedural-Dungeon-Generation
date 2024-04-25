@@ -1,22 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2xwfbcdrhkj7"]
+[gd_scene load_steps=3 format=3 uid="uid://d2xwfbcdrhkj7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1qnyn"]
-[ext_resource type="Texture2D" uid="uid://cmqq8dcfr2b25" path="res://assets/tilemap.png" id="1_cevhi"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sok63"]
-texture = ExtResource("1_cevhi")
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_g8iuy"]
-sources/1 = SubResource("TileSetAtlasSource_sok63")
+[ext_resource type="PackedScene" uid="uid://byh654vt3y2hq" path="res://tilemaps/terrain_tilemap.tscn" id="2_xu7i5"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_1qnyn")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_g8iuy")
-format = 2
+[node name="TileMap" parent="." instance=ExtResource("2_xu7i5")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
