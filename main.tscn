@@ -10,44 +10,83 @@ script = ExtResource("1_1qnyn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SpacePartitioning" type="Node" parent="CanvasLayer"]
+
+[node name="NumSplits" type="SpinBox" parent="CanvasLayer/SpacePartitioning"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -615.0
+offset_right = -95.0
+offset_bottom = -577.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+value = 5.0
+prefix = "splits:"
+
+[node name="Partition" type="Button" parent="CanvasLayer/SpacePartitioning"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -541.0
+offset_right = -53.0
+offset_bottom = -491.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Partition"
+
+[node name="SplitOnce" type="Button" parent="CanvasLayer/SpacePartitioning"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -477.0
+offset_right = -52.0
+offset_bottom = -427.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Split Once"
+
+[node name="ResetSplits" type="Button" parent="CanvasLayer/SpacePartitioning"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -409.0
+offset_right = -58.0
+offset_bottom = -359.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Reset Splits"
+
 [node name="Reroll" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -56.0
-offset_right = -26.0
-offset_bottom = -25.0
+offset_left = -317.0
+offset_top = -92.0
+offset_right = -37.0
+offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Build Full Dungeon"
-
-[node name="NumSplits" type="SpinBox" parent="CanvasLayer"]
-offset_left = 979.0
-offset_top = 235.0
-offset_right = 1079.0
-offset_bottom = 273.0
-scale = Vector2(1.5, 1.5)
-value = 5.0
-prefix = "splits:"
-
-[node name="Partition" type="Button" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -306.0
-offset_right = -26.0
-offset_bottom = -256.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Partition"
 
 [node name="PlaceRooms" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -55,10 +94,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -215.0
-offset_top = -241.0
-offset_right = -25.0
-offset_bottom = -191.0
+offset_left = -226.0
+offset_top = -258.0
+offset_right = -36.0
+offset_bottom = -208.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
@@ -70,16 +109,18 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -257.0
-offset_top = -174.0
-offset_right = -29.0
-offset_bottom = -124.0
+offset_left = -268.0
+offset_top = -191.0
+offset_right = -40.0
+offset_bottom = -141.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = " Place Hallways"
 
+[connection signal="pressed" from="CanvasLayer/SpacePartitioning/Partition" to="." method="_on_partition_pressed"]
+[connection signal="pressed" from="CanvasLayer/SpacePartitioning/SplitOnce" to="." method="_on_split_once_pressed"]
+[connection signal="pressed" from="CanvasLayer/SpacePartitioning/ResetSplits" to="." method="_on_reset_splits_pressed"]
 [connection signal="pressed" from="CanvasLayer/Reroll" to="." method="_on_reroll_pressed"]
-[connection signal="pressed" from="CanvasLayer/Partition" to="." method="_on_partition_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaceRooms" to="." method="_on_place_rooms_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaceHallways" to="." method="_on_place_hallways_pressed"]
