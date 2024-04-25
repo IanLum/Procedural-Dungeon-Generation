@@ -26,10 +26,11 @@ theme_override_font_sizes/font_size = 30
 text = "Build Full Dungeon"
 
 [node name="NumSplits" type="SpinBox" parent="CanvasLayer"]
-offset_left = 1031.0
-offset_top = 219.0
-offset_right = 1144.0
-offset_bottom = 272.0
+offset_left = 979.0
+offset_top = 235.0
+offset_right = 1079.0
+offset_bottom = 273.0
+scale = Vector2(1.5, 1.5)
 value = 5.0
 prefix = "splits:"
 
