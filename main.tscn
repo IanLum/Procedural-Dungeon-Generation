@@ -11,16 +11,17 @@ script = ExtResource("1_1qnyn")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SpacePartitioning" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1136.0
-offset_top = 306.0
-offset_right = 1296.0
-offset_bottom = 531.0
+offset_left = 1143.0
+offset_top = 280.0
+offset_right = 1303.0
+offset_bottom = 542.0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CanvasLayer/SpacePartitioning"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Partitioning"
+text = "Space 
+Partitioning"
 horizontal_alignment = 1
 
 [node name="NumSplits" type="SpinBox" parent="CanvasLayer/SpacePartitioning"]
@@ -45,10 +46,10 @@ theme_override_font_sizes/font_size = 20
 text = "Reset Splits"
 
 [node name="TilePlacing" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1137.0
-offset_top = 557.0
-offset_right = 1297.0
-offset_bottom = 732.0
+offset_left = 1143.0
+offset_top = 568.0
+offset_right = 1303.0
+offset_bottom = 743.0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CanvasLayer/TilePlacing"]
@@ -72,16 +73,55 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Clear Tiles"
 
+[node name="Advanced" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1334.0
+offset_top = 279.0
+offset_right = 1514.0
+offset_bottom = 603.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/Advanced"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Advanced
+Options"
+horizontal_alignment = 1
+
+[node name="Width" type="SpinBox" parent="CanvasLayer/Advanced"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+prefix = "width:"
+
+[node name="Height" type="SpinBox" parent="CanvasLayer/Advanced"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+prefix = "height:"
+
+[node name="MinPartitionSize" type="SpinBox" parent="CanvasLayer/Advanced"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+prefix = "min partition size:"
+
+[node name="RoomPadding" type="SpinBox" parent="CanvasLayer/Advanced"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+prefix = "room padding:"
+
+[node name="HallwayWidth" type="SpinBox" parent="CanvasLayer/Advanced"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+prefix = "hallway width:"
+
 [node name="Reroll" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -317.0
-offset_top = -92.0
-offset_right = -37.0
-offset_bottom = -42.0
+offset_left = -347.0
+offset_top = -86.0
+offset_right = -67.0
+offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
