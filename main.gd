@@ -30,7 +30,6 @@ func _ready():
 	min_partition_size.value = STARTING_PARAMS.MIN_PARTITION_SIZE
 	room_padding.value = STARTING_PARAMS.ROOM_PADDING
 	hallway_width.value = STARTING_PARAMS.HALLWAY_WIDTH
-	
 	full_generate()
 
 func _draw():
@@ -77,6 +76,10 @@ func place_room_tiles():
 		place_terrain(tiles)
 
 func place_hallway_tiles():
+	# +1 is to make space for walls
+	var lower_padding = floor(float(hallway_width.value)/2) + 1
+	var upper_padding = ceil(float(hallway_width.value)/2) + 1
+	
 	var queue: Array[Branch] = [root]
 	while not queue.is_empty():
 		var curr: Branch = queue.pop_front()
@@ -92,12 +95,12 @@ func place_hallway_tiles():
 		if left_center.x == right_center.x:
 			# vertical hallway
 			for y in range(right_center.y - left_center.y):
-				for x in range(left_center.x - 1, left_center.x + 2):
+				for x in range(left_center.x - lower_padding, left_center.x + upper_padding):
 					tiles.append(Vector2i(x, left_center.y + y))
 		else:
 			# horizontal hallway
 			for x in range(right_center.x - left_center.x):
-				for y in range(left_center.y - 1, left_center.y + 2):
+				for y in range(left_center.y - lower_padding, left_center.y + upper_padding):
 					tiles.append(Vector2i(left_center.x + x, y))
 		place_terrain(tiles)
 
