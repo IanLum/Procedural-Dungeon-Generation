@@ -2,24 +2,38 @@ extends Node2D
 
 const TILE_SIZE := 16
 
-const DUNGEON_SIZE = {
+const STARTING_PARAMS = {
+	NUM_SPLITS = 5,
 	WIDTH = 70,
-	HEIGHT = 50
-}
-const PADDING := 1
-const MIN_PARTITION_SIZE := 6	# This translates to a min room size of 2,
+	HEIGHT = 50,
+	MIN_PARTITION_SIZE = 6, # This translates to a min room size of 2,
 								# two tiles of padding, two tiles of walls,
 								# then the last two tiles are the room
+	ROOM_PADDING = 1,
+	HALLWAY_WIDTH = 1,
+}
 
 @onready var tile_map = $TileMap
-@onready var splits_selector = $CanvasLayer/SpacePartitioning/NumSplits
+@onready var num_splits = $CanvasLayer/SpacePartitioning/NumSplits
+@onready var width = $CanvasLayer/Advanced/Width
+@onready var height = $CanvasLayer/Advanced/Height
+@onready var min_partition_size = $CanvasLayer/Advanced/MinPartitionSize
+@onready var room_padding = $CanvasLayer/Advanced/RoomPadding
+@onready var hallway_width = $CanvasLayer/Advanced/HallwayWidth
 
 var root: Branch
 
 func _ready():
+	num_splits.value = STARTING_PARAMS.NUM_SPLITS
+	width.value = STARTING_PARAMS.WIDTH
+	height.value = STARTING_PARAMS.HEIGHT
+	min_partition_size.value = STARTING_PARAMS.MIN_PARTITION_SIZE
+	room_padding.value = STARTING_PARAMS.ROOM_PADDING
+	hallway_width.value = STARTING_PARAMS.HALLWAY_WIDTH
+	
 	root = Branch.new(
 		Vector2i(0, 0),
-		Vector2i(DUNGEON_SIZE.WIDTH, DUNGEON_SIZE.HEIGHT)
+		Vector2i(width.value, height.value)
 	)
 	full_generate()
 
@@ -37,7 +51,7 @@ func _draw():
 		)
 
 func full_generate():
-	root.split(splits_selector.value, MIN_PARTITION_SIZE)
+	root.split(num_splits.value, min_partition_size.value)
 	tile_map.clear()
 	place_room_tiles()
 	place_hallway_tiles()
@@ -49,10 +63,11 @@ func place_terrain(tiles: Array[Vector2i]):
 	)
 
 func place_room_tiles():
+	var padding = room_padding.value
 	for leaf in root.get_leaves():
 		var tiles: Array[Vector2i] = []
-		for x in range(PADDING, leaf.size.x - PADDING):
-			for y in range(PADDING, leaf.size.y - PADDING):
+		for x in range(padding, leaf.size.x - padding):
+			for y in range(padding, leaf.size.y - padding):
 				tiles.append(Vector2i(x + leaf.position.x, y + leaf.position.y))
 		place_terrain(tiles)
 
@@ -84,41 +99,34 @@ func place_hallway_tiles():
 ## --- SPACE PARTITIONING BUTTONS ---
 
 func _on_partition_pressed():
-	root.split(splits_selector.value, MIN_PARTITION_SIZE)
+	root.split(num_splits.value, min_partition_size.value)
 	tile_map.clear()
 	queue_redraw()
-
 
 func _on_split_once_pressed():
 	for leaf in root.get_leaves():
-		leaf.split(1, MIN_PARTITION_SIZE)
+		leaf.split(1, min_partition_size.value)
 	tile_map.clear()
 	queue_redraw()
-
 
 func _on_reset_splits_pressed():
 	root = Branch.new(
 		Vector2i(0, 0),
-		Vector2i(DUNGEON_SIZE.WIDTH, DUNGEON_SIZE.HEIGHT)
+		Vector2i(width.value, height.value)
 	)
 	tile_map.clear()
 	queue_redraw()
 
-
 ## --- TILE PLACING BUTTONS ---
-
 
 func _on_place_rooms_pressed():
 	place_room_tiles()
 
-
 func _on_place_hallways_pressed():
 	place_hallway_tiles()
 
-
 func _on_clear_tiles_pressed():
 	tile_map.clear()
-
 
 func _on_reroll_pressed():
 	full_generate()
