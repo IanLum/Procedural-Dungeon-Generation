@@ -31,10 +31,6 @@ func _ready():
 	room_padding.value = STARTING_PARAMS.ROOM_PADDING
 	hallway_width.value = STARTING_PARAMS.HALLWAY_WIDTH
 	
-	root = Branch.new(
-		Vector2i(0, 0),
-		Vector2i(width.value, height.value)
-	)
 	full_generate()
 
 func _draw():
@@ -50,12 +46,21 @@ func _draw():
 			false
 		)
 
+func reset_root():
+	root = Branch.new(
+		Vector2i(0, 0),
+		Vector2i(width.value, height.value)
+	)
+
 func full_generate():
+	reset_root()
 	root.split(num_splits.value, min_partition_size.value)
 	tile_map.clear()
 	place_room_tiles()
 	place_hallway_tiles()
 	queue_redraw()
+
+## --- TILE PLACING ---
 
 func place_terrain(tiles: Array[Vector2i]):
 	tile_map.set_cells_terrain_connect(
@@ -99,6 +104,7 @@ func place_hallway_tiles():
 ## --- SPACE PARTITIONING BUTTONS ---
 
 func _on_partition_pressed():
+	reset_root()
 	root.split(num_splits.value, min_partition_size.value)
 	tile_map.clear()
 	queue_redraw()
@@ -110,10 +116,7 @@ func _on_split_once_pressed():
 	queue_redraw()
 
 func _on_reset_splits_pressed():
-	root = Branch.new(
-		Vector2i(0, 0),
-		Vector2i(width.value, height.value)
-	)
+	reset_root()
 	tile_map.clear()
 	queue_redraw()
 
