@@ -10,114 +10,66 @@ script = ExtResource("1_1qnyn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SpacePartitioning" type="Node" parent="CanvasLayer"]
+[node name="SpacePartitioning" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1136.0
+offset_top = 306.0
+offset_right = 1296.0
+offset_bottom = 531.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/SpacePartitioning"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Partitioning"
+horizontal_alignment = 1
 
 [node name="NumSplits" type="SpinBox" parent="CanvasLayer/SpacePartitioning"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -195.0
-offset_top = -654.0
-offset_right = -95.0
-offset_bottom = -616.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.5, 1.5)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 value = 5.0
 prefix = "splits:"
 
 [node name="Partition" type="Button" parent="CanvasLayer/SpacePartitioning"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -186.0
-offset_top = -580.0
-offset_right = -53.0
-offset_bottom = -530.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Partition"
 
 [node name="SplitOnce" type="Button" parent="CanvasLayer/SpacePartitioning"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -207.0
-offset_top = -516.0
-offset_right = -52.0
-offset_bottom = -466.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Split Once"
 
 [node name="ResetSplits" type="Button" parent="CanvasLayer/SpacePartitioning"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -233.0
-offset_top = -448.0
-offset_right = -58.0
-offset_bottom = -398.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Reset Splits"
 
-[node name="TilePlacing" type="Node" parent="CanvasLayer"]
+[node name="TilePlacing" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1137.0
+offset_top = 557.0
+offset_right = 1297.0
+offset_bottom = 732.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/TilePlacing"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Tile Placing"
+horizontal_alignment = 1
 
 [node name="PlaceRooms" type="Button" parent="CanvasLayer/TilePlacing"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -246.0
-offset_top = -341.0
-offset_right = -56.0
-offset_bottom = -291.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Place Rooms"
 
 [node name="PlaceHallways" type="Button" parent="CanvasLayer/TilePlacing"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -274.0
-offset_right = -60.0
-offset_bottom = -224.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = " Place Hallways"
 
 [node name="ClearTiles" type="Button" parent="CanvasLayer/TilePlacing"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -218.0
-offset_top = -207.0
-offset_right = -63.0
-offset_bottom = -157.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Clear Tiles"
 
 [node name="Reroll" type="Button" parent="CanvasLayer"]
