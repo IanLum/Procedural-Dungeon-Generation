@@ -11,10 +11,17 @@ script = ExtResource("1_1qnyn")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SpacePartitioning" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1143.0
-offset_top = 280.0
-offset_right = 1303.0
-offset_bottom = 542.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -576.0
+offset_right = -232.0
+offset_bottom = -314.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CanvasLayer/SpacePartitioning"]
@@ -46,10 +53,17 @@ theme_override_font_sizes/font_size = 20
 text = "Reset Splits"
 
 [node name="TilePlacing" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1143.0
-offset_top = 568.0
-offset_right = 1303.0
-offset_bottom = 743.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -290.0
+offset_right = -232.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CanvasLayer/TilePlacing"]
@@ -74,10 +88,17 @@ theme_override_font_sizes/font_size = 20
 text = "Clear Tiles"
 
 [node name="Advanced" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1334.0
-offset_top = 279.0
-offset_right = 1514.0
-offset_bottom = 603.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -575.0
+offset_right = -25.0
+offset_bottom = -251.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CanvasLayer/Advanced"]
