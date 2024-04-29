@@ -4,8 +4,8 @@ const TILE_SIZE := 16
 
 const STARTING_PARAMS = {
 	NUM_SPLITS = 5,
-	WIDTH = 70,
-	HEIGHT = 50,
+	WIDTH = 60,
+	HEIGHT = 40,
 	MIN_PARTITION_SIZE = 6, # This translates to a min room size of 2,
 								# two tiles of padding, two tiles of walls,
 								# then the last two tiles are the room
