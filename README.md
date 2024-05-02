@@ -38,4 +38,10 @@ When rooms and hallways are combined, the dungeon is complete!
 
 <img src="assets/readme/gen_full.png" alt="" width="450"/>
 
-## Benchmarking
+## C# Benchmarking
+
+I also took the project as time to try working with C# in Godot. I implemented the same branch class in C# (you can see it on the `csharp` branch) and measured the time the GDScript and C# classes to partition the room with an increasing number of splits.
+
+<img src="assets/readme/BSPBenchmarking.png" alt="" width="450"/>
+
+C# did out perform GDScript, but surprisingly not by that much. This is likely due to me not using the full extent of C# features, as C# tends to run about [twice as fast](https://github.com/cart/godot3-bunnymark) as GDScript
