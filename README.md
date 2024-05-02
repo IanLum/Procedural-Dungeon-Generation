@@ -4,6 +4,8 @@ You can play around with it [here!](https://oats314.itch.io/procedural-dungeon-g
 
 For my final project I made an interactive procedural dungeon generator, using a binary space partitioning algorithm to generate the rooms. Big thanks to Jono Shields for making [this tutorial](https://jonoshields.com/post/bsp-dungeon) that this project is based off of.
 
+## Binary Space Partitioning
+
 Binary space partitioning, or BSP, is an algorithm that recursively splits space in rooms, and stores these rooms in a tree. The leaves of the tree (nodes with no children) ultimately become the rooms of the dungeon.
 
 <img src="assets/readme/bsp_example.png" alt="" width="450"/>
@@ -22,6 +24,8 @@ After recursing for three splits (creating 8, $2^3$, rooms), the partitions look
 
 <img src="assets/readme/gen_split.png" alt="" width="450"/>
 
+## Tile Placing
+
 With the room partitioned, rooms are placed into the leaf partitions. There is a default padding of 1 tile to prevent rooms from touching.
 
 <img src="assets/readme/gen_rooms.png" alt="" width="450"/>
@@ -33,3 +37,5 @@ Hallways are created by connecting the midpoint of each node with the midpoint o
 When rooms and hallways are combined, the dungeon is complete!
 
 <img src="assets/readme/gen_full.png" alt="" width="450"/>
+
+## Benchmarking
